@@ -12,31 +12,53 @@
 
 You must first install Anaconda Navigator from https://www.anaconda.com/download to install Jupyter Notebook. 
 
-### Mac
-1. Visit the site for Anaconda Navigator.
-2. Press Download and select your Mac Architecture.
-   * Intel Processor (This is for devices that have an Intel Processor).
-   * Apple ARM M1 or M2 (This is for devices that have Apple Silicon specifically for M1 or later).
-3. Execute the file and it will ask for you if you trust it and press 'Allow'.
-4. Agree to the Terms and Conditions and press Install.
-5. Click continue and you can now delete the installer.
-6. Open Anaconda Navigator and Launch the Jupyter Notebook.
+### OS Versions
+<details>
+  <summary> 📘 Click Here for Mac Installation Steps </summary>
 
-### Windows
-1. Visit the site for Anaconda Navigator.
-2. Press Download and select Windows.
-3. Save the exe file and run the installer.
-4. Press the next button until you see the Install button and press Install.
-5. Once you’ve installed Anaconda Navigator, open it and launch the Jupyter Notebook.
+  <br>
+  
+  1. Visit the site for Anaconda Navigator.
+  2. Press Download and select your Mac Architecture.
+     * Intel Processor (This is for devices that have an Intel Processor).
+     * Apple ARM M1 or M2 (This is for devices that have Apple Silicon specifically for M1 or later).
+  3. Execute the file and it will ask for you if you trust it and press 'Allow'.
+  4. Agree to the Terms and Conditions and press Install.
+  5. Click continue and you can now delete the installer.
+  6. Open Anaconda Navigator and Launch the Jupyter Notebook.
+</details>
 
-### Linux
-1. Visit the site for Anaconda Navigator.
-2. Select Linux
-3. Copy the bash (.sh file) installer link.
-4. Use wget to download the bash installer.
-5. Run the bash script to install Anaconda3.
-6. source the .bash-rc file to add Anaconda to your PATH.
-7. Start the Python REPL.
+<br>
+
+<details>
+  <summary> 📘 Click Here for ⊞Windows Installation Steps </summary>
+
+  <br>
+  
+  1. Visit the site for Anaconda Navigator.
+  2. Press Download and select Windows.
+  3. Save the exe file and run the installer.
+  4. Press the next button until you see the Install button and press Install.
+  5. Once you’ve installed Anaconda Navigator, open it and launch the Jupyter Notebook.
+
+</details>
+
+<br>
+
+<details>
+  <summary> 📘 Click Here for 🐧Linux Installation Steps </summary>
+
+  <br>
+
+  1. Visit the site for Anaconda Navigator.
+  2. Select Linux
+  3. Copy the bash (.sh file) installer link.
+  4. Use wget to download the bash installer.
+  5. Run the bash script to install Anaconda3.
+  6. source the .bash-rc file to add Anaconda to your PATH.
+  7. Start the Python REPL.
+
+</details>
 
 ## Table of Contents
 - [Overview](#Overview)
@@ -69,4 +91,6 @@ TEST TEST TEST
 ## Version History
 | Version | Description                        | Date       |
 | ------- | ---------------------------------- | ---------- |
-| 1.0.0   | Initial release and updated README | 10-29-2024 |
+| 1.0.0   | Initial commit                     | 10-20-2024 |
+| 1.1.0   | Updated README.md                  | 10-29-2024 |
+
