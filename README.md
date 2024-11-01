@@ -61,7 +61,7 @@ You must first install Anaconda Navigator from https://www.anaconda.com/download
 </details>
 
 ## 📑 Table of Contents
-- [Overview of Dataset](#📊--Overview-of-Dataset)
+- [Overview of Dataset](#📊-Overview-of-Dataset)
 - [Basic Descriptive Statistics](#📈-Basic-Descriptive-Statistics)
 - [Top Performers](#🎵-Top-Performers)
 - [Temporal Trends](#📅-Temporal-Trends)
