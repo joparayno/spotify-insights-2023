@@ -61,13 +61,13 @@ You must first install Anaconda Navigator from https://www.anaconda.com/download
 </details>
 
 ## 📑 Table of Contents
-- [Overview of Dataset](#📊-Overview-of-Dataset)
-- [Basic Descriptive Statistics](#📈-Basic-Descriptive-Statistics)
-- [Top Performers](#🎵-Top-Performers)
-- [Temporal Trends](#📅-Temporal-Trends)
-- [Genre and Music Characteristics](#🎼-Genre-and-Music-Characteristics)
-- [Platform Popularity](#🌐-Platform-Popularity)
-- [Advanced Analysis](#🧠-Advanced-Analysis)
+- [Overview of Dataset](#-📊-Overview-of-Dataset)
+- [Basic Descriptive Statistics](#-📈-Basic-Descriptive-Statistics)
+- [Top Performers](#-🎵-Top-Performers)
+- [Temporal Trends](#-📅-Temporal-Trends)
+- [Genre and Music Characteristics](#-🎼-Genre-and-Music-Characteristics)
+- [Platform Popularity](#-🌐-Platform-Popularity)
+- [Advanced Analysis](#-🧠-Advanced-Analysis)
 - [Conclusion](#Conclusion)
 - [Version History](#Version-History)
 
