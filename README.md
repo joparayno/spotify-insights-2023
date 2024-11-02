@@ -75,26 +75,148 @@ You must first install Anaconda Navigator from https://www.anaconda.com/download
 
 ---
 
+Before we begin the Data Analysis, we must first import the required libraries, download the csv file [View CSV Data](https://github.com/joparayno/spotify-insights-2023/blob/main/Most%20Streamed%20Spotify%202023.csv), and use the pd.read_csv() function to load the csv into a Pandas DataFrame.
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("Most Streamed Spotify 2023.csv", encoding='latin-1')
+df
+```
+
 ## Overview of Dataset
-<details> 
-<summary> TEST </summary>
-  
-TEST TEST TEST
-  
-</details>
+- How many rows and columns does the dataset contain?
+  ```python
+  rows, columns = df.shape
+  print("The dataset contains", rows, "rows and", columns, "columns.")
+  ```
+  **Output**:
+  ```
+  The dataset contains 953 rows and 24 columns.
+  ```
+   
+- What are the data types of each column? Are there any missing values?
+  ```python
+  print("Data types of each column:")
+  print(df.dtypes)
+
+  missing_values = df.isnull().sum()
+  print("\nMissing values in each column:")
+  print(missing_values)
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
 
 ## Basic Descriptive Statistics
-
+- What are the mean, median, and standard deviation of the streams column?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+  
+- What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+  
 ## Top Performers
-
+- Which track has the highest number of streams? Display the top 5 most streamed tracks.
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+   
+- Who are the top 5 most frequent artists based on the number of tracks in the dataset?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+  
 ## Temporal Trends
-
+- Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+    
+- Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+    
 ## Genre and Music Characteristics
-
+- Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+    
+- Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+  
 ## Platform Popularity
-
+- How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+  
 ## Advanced Analysis
-
+- Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+  
+- Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
+  ```python
+  
+  ```
+  **Output**:
+  ```
+  OUTPUT
+  ```
+  
 ---
 
 ## Conclusion
@@ -107,4 +229,5 @@ TEST TEST TEST
 | 1.0.0   | Initial commit                     | 10-20-2024 |
 | 1.1.0   | Updated README.md                  | 10-29-2024 |
 | 1.2.0   | Updated README.md                  | 11-02-2024 |
+| 1.3.0   | Updated README.md                  | 11-03-2024 |
 
