@@ -301,10 +301,10 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 ---
 
 ## Version History
-| Version | Description                        | Date       |
-| ------- | ---------------------------------- | ---------- |
-| 1.0.0   | Initial commit                     | 10-20-2024 |
-| 1.1.0   | Updated README.md                  | 10-29-2024 |
-| 1.2.0   | Updated README.md                  | 11-02-2024 |
-| 1.3.0   | Updated README.md                  | 11-03-2024 |
+| Version | Description                                | Date       |
+| ------- | -------------------------------------------| ---------- |
+| 1.0.0   | Initial commit                             | 10-20-2024 |
+| 1.1.0   | Updated README.md                          | 10-29-2024 |
+| 1.2.0   | Updated README.md                          | 11-02-2024 |
+| 1.3.0   | Updated README.md and added a csv file.    | 11-03-2024 |
 
