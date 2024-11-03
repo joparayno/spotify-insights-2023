@@ -263,7 +263,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 ## Platform Popularity
 - How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
   ```python
-  sources = ['in_spotify_playlists','in_spotify_charts', 'in_apple_playlists'] # Gets the sources for the playlist
+  sources = ['in_spotify_playlists','in_spotify_charts', 'in_apple_playlists']
 
   track_sums = [df[src].sum() for src in sources] # Sums the tracks for each source
 
