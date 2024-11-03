@@ -191,7 +191,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   max      3.703895e+09
   Name: streams, dtype: float64
   ```
-  With the provided output, we can get the mean value as 5.141374e+08, the median (50%) as 2.905309e+08, and the standard           deviation as 5.668569e+08.
+  With the provided output, we can get the mean value as 5.141374e+08, the median (50%) as 2.905309e+08, and the standard deviation as 5.668569e+08.
   
 - What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
   ```python
@@ -208,10 +208,15 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   df.sort_values(by=["streams"],ascending=False).head() # Sorts by 'streams' in descending order and display the top 5 rows.
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
-   
+  
+  | track_name       | artist(s)_name             | artist_count | released_year | released_month | released_day | in_spotify_playlists | in_spotify_charts | streams     | in_apple_playlists | bpm | key | mode | danceability_% | valence_% | energy_% | acousticness_% | instrumentalness_% | liveness_% | speechiness_% |
+  |------------------|----------------------------|--------------|---------------|----------------|--------------|----------------------|-------------------|-------------|--------------------|-----|-----|------|----------------|-----------|----------|----------------|--------------------|------------|---------------|
+  | Blinding Lights | The Weeknd                 | 1            | 2019          | 11             | 29           | 43899               | 69                | 3.7039e+09  | 672 | 171 | C#  | Major | 50             | 38        | 80       | 0              | 0                  | 9          | 7             |
+  | Shape of You    | Ed Sheeran                 | 1            | 2017          | 1              | 6            | 32181               | 10                | 3.5625e+09  | 33 |96  | C#  | Minor | 83             | 93        | 65       | 58             | 0                  | 9          | 8             |
+  | Someone You Loved | Lewis Capaldi            | 1            | 2018          | 11             | 8            | 17836               | 53                | 2.8872e+09  | 440 |110 | C#  | Major | 50             | 45        | 41       | 75             | 0                  | 11         | 3             |
+  | Dance Monkey    | Tones and I                | 1            | 2019          | 5              | 10           | 24529               | 0                 | 2.8648e+09  | 533 |98  | F#  | Minor | 82             | 54        | 59       | 69             | 0                  | 18         | 10            |
+  | Sunflower - Spider-Man: Into the Spider-Verse | Post Malone, Swae Lee | 2 | 2018 | 10 | 9 | 24094 | 78 | 2.8081e+09 | 372 | 90 | D | Major | 76 | 91 | 50 | 54 | 0 | 7 | 5 |
+
 - Who are the top 5 most frequent artists based on the number of tracks in the dataset?
   ```python
   
@@ -234,32 +239,52 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   
 - Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
   ```python
+  month_pattern = df.groupby('released_month').size() # Groups the data by 'released_month' column and count the number of occurences for each month.
   
+  plt.plot(month_pattern) # Plots the pattern of the data.
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
-    
+  
+  ![Screenshot 2024-11-03 at 10 48 23 PM](https://github.com/user-attachments/assets/9bc033ed-eaa1-4d56-b90b-09b3c6ec4131)
+ 
 ## Genre and Music Characteristics
 - Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
   ```python
-  
+  features = ['bpm', 'danceability_%', 'energy_%', 'valence_%', 'acousticness_%', 'instrumentalness_%', 'liveness_%', 'speechiness_%']
+
+  fig, axes = plt.subplots(4, 2, figsize=(15, 12)) # Create subplots for each feature
+  axes = axes.flatten()
+
+  for i, feature in enumerate(features): # Plot streams for each feature
+    df.groupby(feature)['streams'].sum().sort_index().plot(ax=axes[i], label=feature)
+    axes[i].legend()
+
+  plt.tight_layout()
+  plt.show()
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
-    
+
+  ![Screenshot 2024-11-03 at 10 54 47 PM](https://github.com/user-attachments/assets/7677c66d-59e9-4ef2-9761-1a73f7fbe664)
+
 - Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
   ```python
-  
+  musical_attr = df[features]
+
+  # Customize the pairplot
+  sns.pairplot(
+    musical_attr,
+    plot_kws={
+        'alpha': 0.3,        
+        's': 70,
+        'marker': 'o'
+    }
+  )
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
-  
+
+  ![Screenshot 2024-11-03 at 11 09 54 PM](https://github.com/user-attachments/assets/e69d0787-6e98-4005-a4c0-b19eaa91c880)
+
+
 ## Platform Popularity
 - How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
   ```python
@@ -306,5 +331,5 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 | 1.0.0   | Initial commit                             | 10-20-2024 |
 | 1.1.0   | Updated README.md                          | 10-29-2024 |
 | 1.2.0   | Updated README.md                          | 11-02-2024 |
-| 1.3.0   | Updated README.md and added a csv file.    | 11-03-2024 |
+| 1.3.0   | Updated README.md and uploaded a csv file. | 11-03-2024 |
 
