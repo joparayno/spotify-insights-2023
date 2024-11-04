@@ -1,6 +1,6 @@
 # 🎶 Analyzing Trends in Spotify's Top Songs of 2023 using Exploratory Data Analysis
 
-> This project explores Spotify's top songs of 2023 by performing an exploratory data analysis (EDA). With the help of Python, it examines trends, correlations, and key factors such as the number of streams, release dates, and musical attributes. Findings from this analysis aim to offer valuable insights into the elements that drive a track’s success on streaming platforms.
+> This project explores Spotify's top songs of 2023 by performing an exploratory data analysis (EDA). With the help of Python, we'll be able to examine the trends, correlations, and key factors such as the number of streams, release dates, and musical attributes. Findings from this analysis aim to offer valuable insights into the elements that drive a track’s success on streaming platforms.
 
 ---
 
