@@ -263,7 +263,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   ```python
   features = ['bpm', 'danceability_%', 'energy_%', 'valence_%', 'acousticness_%', 'instrumentalness_%', 'liveness_%', 'speechiness_%']
 
-  fig, axes = plt.subplots(4, 2, figsize=(15, 12)) # Create subplots for each feature
+  fig, axes = plt.subplots(4, 2, figsize=(20, 14)) # Create subplots for each feature
   axes = axes.flatten()
 
   for i, feature in enumerate(features): # Plot streams for each feature
@@ -275,7 +275,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   ```
   **Output**:
 
-  ![Screenshot 2024-11-03 at 10 54 47 PM](https://github.com/user-attachments/assets/7677c66d-59e9-4ef2-9761-1a73f7fbe664)
+  ![Screenshot 2024-11-05 at 12 17 24 AM](https://github.com/user-attachments/assets/40c99974-c7e3-4890-bc45-d6c6ec254e65)
 
 - Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
   ```python
@@ -295,7 +295,6 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 
   ![Screenshot 2024-11-03 at 11 09 54 PM](https://github.com/user-attachments/assets/e69d0787-6e98-4005-a4c0-b19eaa91c880)
 
-
 ## Platform Popularity
 - How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
   ```python
@@ -314,22 +313,55 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 ## Advanced Analysis
 - Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
   ```python
-  
+  # Get the sum of all streams per key
+  strkey = df.groupby('key')['streams'].sum()
+
+  strms_df = strkey.reset_index()
+  strkey.columns = ['key', 'streams']
+
+  sns.barplot(x='key', y='streams', data=strms_df);
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
-  
+
+  ![Screenshot 2024-11-05 at 12 08 05 AM](https://github.com/user-attachments/assets/2d8a8967-b05e-4f86-9efc-a1220f1aef13)
+
 - Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
   ```python
-  
+  filtered_df = df.copy()  # Make a copy of the original DataFrame
+
+  platforms = [
+    'in_spotify_playlists', 
+    'in_spotify_charts', 
+    'in_apple_playlists', 
+    'in_apple_charts', 
+    'in_deezer_playlists',
+    'in_deezer_charts',
+    'in_shazam_charts'
+  ]
+
+  # Create subplots for each platform
+  fig, axes = plt.subplots(4, 2, figsize=(20, 18)) 
+  axes = axes.flatten()
+
+  for i, platform in enumerate(platforms):
+    # Ensure the column is numeric and handle missing values
+    filtered_df[platform] = pd.to_numeric(filtered_df[platform], errors='coerce').fillna(0)
+
+    # Group, sum, and sort values.
+    artists = filtered_df.groupby('artist(s)_name')[platform].sum().sort_values(ascending=False).reset_index()
+    
+    sns.barplot(x='artist(s)_name', y=platform, data=artists.head(), ax=axes[i])
+
+  for j in range(len(platforms), len(axes)):
+    axes[j].axis('off')
+
+  plt.tight_layout()  
+  plt.show()  
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
-  
+
+  ![Screenshot 2024-11-05 at 12 46 30 AM](https://github.com/user-attachments/assets/e3fa5ce2-362e-4aae-842a-4860001b8c09)
+
 ---
 
 ## Conclusion
@@ -344,4 +376,4 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 | 1.2.0   | Updated README.md                          | 11-02-2024 |
 | 1.3.0   | Updated README.md and uploaded a csv file. | 11-03-2024 |
 | 1.4.0   | Updated README.md                          | 11-04-2024 |
-
+| 1.5.0   | Updated README.md                          | 11-05-2024 |
