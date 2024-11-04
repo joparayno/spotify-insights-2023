@@ -219,13 +219,24 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 
 - Who are the top 5 most frequent artists based on the number of tracks in the dataset?
   ```python
-  
+  artists = df['artist(s)_name']
+  artist = []
+
+  # Separate multiple artists by commas, stripping extra spaces.
+  for i in artists:
+    for ix in i.split(','):
+        artist.append(ix.strip()) 
+
+  # Determines the top 5 frequent artists.
+  freq_art = pd.DataFrame(artist, columns=['Artists']).value_counts().reset_index(name='Number of Songs').iloc[:5]
+
+  sns.barplot(x='Artists', y='Number of Songs', data=freq_art)
+  plt.show()
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
   
+  ![Screenshot 2024-11-04 at 10 17 36 PM](https://github.com/user-attachments/assets/02ad062c-3c1f-48aa-9b65-aa613fae7540)
+
 ## Temporal Trends
 - Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
   ```python
@@ -332,4 +343,5 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 | 1.1.0   | Updated README.md                          | 10-29-2024 |
 | 1.2.0   | Updated README.md                          | 11-02-2024 |
 | 1.3.0   | Updated README.md and uploaded a csv file. | 11-03-2024 |
+| 1.4.0   | Updated README.md                          | 11-04-2024 |
 
