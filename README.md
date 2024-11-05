@@ -224,7 +224,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 
   ![Screenshot 2024-11-05 at 1 03 36 PM](https://github.com/user-attachments/assets/417beab2-9802-457e-90e8-5743f7ad1290)
 
-  >
+  > 
  
 ## Top Performers
 - Which track has the highest number of streams? Display the top 5 most streamed tracks.
@@ -286,7 +286,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   
   ![Screenshot 2024-11-03 at 2 12 15 PM](https://github.com/user-attachments/assets/fc78cf7b-108a-4d24-a99e-79090499bc82)
 
-  >
+  > We can observe a significant increase in the number of tracks released in the year 2020. This surge might be attributed to the data collected and the specific year of release.
   
 - Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
   ```python
