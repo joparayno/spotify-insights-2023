@@ -223,7 +223,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 
   ![Screenshot 2024-11-05 at 1 03 36 PM](https://github.com/user-attachments/assets/417beab2-9802-457e-90e8-5743f7ad1290)
 
-  > 
+  > With the gathered information for the Top Hits, most songs are concentrated towards recent years, especially from the 2000s onward. This suggests that the most popular streamed songs in the dataset are recent. Outliers exist in earlier years, going back to the 1940s, which could represent older classic songs that have remained popular or experienced a resurgence in streaming popularity. Clustering for recent years indicates that more recent releases are more commonly represented among popular streams. Most songs have an artist count between 1 and 3, with a strong concentration around single-artist songs. Outliers with higher artist counts, up to 8, likely indicate collaborations or songs with multiple featured artists, which may be less common. The high concentration of single-artist entries aligns with the music industry trend of individual artist dominance, but the presence of outliers suggests the popularity of collaborative tracks in recent years.
  
 ## Top Performers
 - Which track has the highest number of streams? Display the top 5 most streamed tracks.
