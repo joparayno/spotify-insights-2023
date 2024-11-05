@@ -97,7 +97,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   ```
   The dataset contains 953 rows and 24 columns.
   ```
-   
+  > Dataset consists of 953 rows and 24 columns.
+ 
 - What are the data types of each column? Are there any missing values?
   ```python
   
@@ -164,6 +165,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   speechiness_%            0
   dtype: int64
   ```
+  > We can observe that certain columns display their data type as “int64” and “object.” Now, for the “in_shazam_charts” column, there’s a missing value of 50, while the “key” column has a missing value of 95.
 
 ## Basic Descriptive Statistics
 - What are the mean, median, and standard deviation of the streams column?
@@ -191,7 +193,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   max      3.703895e+09
   Name: streams, dtype: float64
   ```
-  With the provided output, we can get the mean value as 5.141374e+08, the median (50%) as 2.905309e+08, and the standard deviation as 5.668569e+08.
+  > With the provided output, we can get the mean value as 5.141374e+08, the median (50%) as 2.905309e+08, and the standard deviation as 5.668569e+08.
   
 - What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
   ```python
@@ -221,6 +223,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   **Output**:
 
   ![Screenshot 2024-11-05 at 1 03 36 PM](https://github.com/user-attachments/assets/417beab2-9802-457e-90e8-5743f7ad1290)
+
+  >
  
 ## Top Performers
 - Which track has the highest number of streams? Display the top 5 most streamed tracks.
@@ -236,6 +240,13 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   | Someone You Loved | Lewis Capaldi            | 1            | 2018          | 11             | 8            | 17836               | 53                | 2.8872e+09  | 440 |110 | C#  | Major | 50             | 45        | 41       | 75             | 0                  | 11         | 3             |
   | Dance Monkey    | Tones and I                | 1            | 2019          | 5              | 10           | 24529               | 0                 | 2.8648e+09  | 533 |98  | F#  | Minor | 82             | 54        | 59       | 69             | 0                  | 18         | 10            |
   | Sunflower - Spider-Man: Into the Spider-Verse | Post Malone, Swae Lee | 2 | 2018 | 10 | 9 | 24094 | 78 | 2.8081e+09 | 372 | 90 | D | Major | 76 | 91 | 50 | 54 | 0 | 7 | 5 |
+
+  > The most popular tracks are:
+  > 1. Blinding Lights by The Weeknd with the streams of 3.7039e+09.
+  > 2. Shape of You by Ed Sheeran with the streams of 3.5625e+09.
+  > 3. Someone You Loved by Lewis Capaldi with the streams of 2.887242e+09.	
+  > 4. Dance Monkey by Tones and I with the streams of 2.864792e+09.
+  > 5. Sunflower - Spider-Man: Into the Spider-Verse by Post Malone, Swae Lee with the streams of 2.808097e+09.
 
 - Who are the top 5 most frequent artists based on the number of tracks in the dataset?
   ```python
@@ -257,6 +268,13 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   
   ![Screenshot 2024-11-04 at 10 17 36 PM](https://github.com/user-attachments/assets/02ad062c-3c1f-48aa-9b65-aa613fae7540)
 
+  > By combining all the artists in the dataset and sorting it in descending order, we can determine the top 5 most frequent artists based on the number of tracks they have.
+  > 1. Bad Bunny
+  > 2. Taylor Swift
+  > 3. The Weeknd
+  > 4. Kendrick Lamar
+  > 5. SZA
+
 ## Temporal Trends
 - Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
   ```python
@@ -267,6 +285,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   **Output**:
   
   ![Screenshot 2024-11-03 at 2 12 15 PM](https://github.com/user-attachments/assets/fc78cf7b-108a-4d24-a99e-79090499bc82)
+
+  >
   
 - Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
   ```python
@@ -277,6 +297,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   **Output**:
   
   ![Screenshot 2024-11-03 at 10 48 23 PM](https://github.com/user-attachments/assets/9bc033ed-eaa1-4d56-b90b-09b3c6ec4131)
+
+  >
  
 ## Genre and Music Characteristics
 - Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
@@ -297,6 +319,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 
   ![Screenshot 2024-11-05 at 12 17 24 AM](https://github.com/user-attachments/assets/40c99974-c7e3-4890-bc45-d6c6ec254e65)
 
+  >
+
 - Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
   ```python
   musical_attr = df[features]
@@ -315,6 +339,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 
   ![Screenshot 2024-11-03 at 11 09 54 PM](https://github.com/user-attachments/assets/e69d0787-6e98-4005-a4c0-b19eaa91c880)
 
+  > 
+
 ## Platform Popularity
 - How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
   ```python
@@ -329,6 +355,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   **Output**:
 
   ![Screenshot 2024-11-03 at 2 19 37 PM](https://github.com/user-attachments/assets/f339c3af-0776-4f9c-9703-e9be94ab21d0)
+
+  > It appears that Spotify offers the most favorable platform for the most popular tracks.
   
 ## Advanced Analysis
 - Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
@@ -344,6 +372,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   **Output**:
 
   ![Screenshot 2024-11-05 at 12 08 05 AM](https://github.com/user-attachments/assets/2d8a8967-b05e-4f86-9efc-a1220f1aef13)
+
+  > C# dominates all keys, making it the most frequently used key in streamed songs. Also, some keys have the same amount of use.
 
 - Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
   ```python
@@ -381,6 +411,8 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   **Output**:
 
   ![Screenshot 2024-11-05 at 12 46 30 AM](https://github.com/user-attachments/assets/e3fa5ce2-362e-4aae-842a-4860001b8c09)
+
+  > Artists seem to be more prominent in playlists and charts. Among all playlists, Taylor Swift, The Weeknd, and Harry Styles are featured on every playlist. Ed Sheeran appears twice, while Eminem, Dua Lipa, Bruno Mars, and Maneskin appear once. In charts, Taylor Swift dominates, appearing on all charts, while Bad Bunny appears thrice, The Weeknd appears twice, Arctic Monkeys, Harry Styles, SZA, New Jeans, Miley Cyrus, One Republic, Olivia Rodrigo, Dr. Dre Snoop Dogg, Gurma, Central Cee, and only one other artist, Gurma, appear only once.
 
 ---
 
