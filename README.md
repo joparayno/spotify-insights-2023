@@ -90,7 +90,7 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 ## Overview of Dataset
 - How many rows and columns does the dataset contain?
   ```python
-  rows, columns = df.shape # Provides the number of rows and columns of the DataFrame
+  rows, columns = df.shape # Provide the number of rows and columns of the DataFrame
   print("The dataset contains", rows, "rows and", columns, "columns.")
   ```
   **Output**:
@@ -103,9 +103,9 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   ```python
   
   print("Data types of each column:")
-  print(df.dtypes) # Describes each column’s data type.
+  print(df.dtypes) # Describe each column’s data type.
 
-  missing_values = df.isnull().sum() # Counts the number of missing values on the dataset.
+  missing_values = df.isnull().sum() # Count the number of missing values on the dataset.
   print("\nMissing values in each column:")
   print(missing_values)
   ```
@@ -170,11 +170,11 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 ## Basic Descriptive Statistics
 - What are the mean, median, and standard deviation of the streams column?
   ```python
-  # Converts the 'streams' column to numeric values, coercing any errors to NaN
+  # Convert the 'streams' column to numeric values, coercing any errors to NaN
   df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
   df = df.dropna(subset=['streams'])
 
-  # Shows the summary statistics for each column
+  # Show the summary statistics for each column
   df.describe()
   statsum = df['streams'].describe() # Shows the statistics of the 'streams' column
   print("Summary of Streams: ")
@@ -278,9 +278,9 @@ Before we begin the Data Analysis, we must first import the required libraries, 
 ## Temporal Trends
 - Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
   ```python
-  spotify_yr = df.groupby('released_year').size() # Counts the songs per release year.
+  spotify_yr = df.groupby('released_year').size() # Count the songs per release year.
 
-  plt.plot(spotify_yr) # Plots the number of songs released each year as a line plot.
+  plt.plot(spotify_yr) # Plot the number of songs released each year as a line plot.
   ```
   **Output**:
   
@@ -290,9 +290,9 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   
 - Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
   ```python
-  month_pattern = df.groupby('released_month').size() # Groups the data by 'released_month' column and count the number of occurences for each month.
+  month_pattern = df.groupby('released_month').size() # Group the data by 'released_month' column and count the number of occurences for each month.
   
-  plt.plot(month_pattern) # Plots the pattern of the data.
+  plt.plot(month_pattern) # Plot the pattern of the data.
   ```
   **Output**:
   
