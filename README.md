@@ -195,13 +195,33 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   
 - What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
   ```python
-  
+  fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+
+  # Histogram for 'released_year'
+  sns.histplot(df['released_year'], bins=20, stat='count', ax=axes[0, 0], color='skyblue')
+  axes[0, 0].set_title('Released Year')
+  axes[0, 0].set_xlabel('Released Year')
+
+  # Box plot for 'released_year'
+  sns.boxplot(x=df['released_year'], ax=axes[1, 0], color='lightblue', width=0.6)
+  axes[1, 0].set_title('Released Year - Outliers')
+
+  # Histogram for 'artist_count'
+  sns.histplot(df['artist_count'], bins=15, stat='count', ax=axes[0, 1], color='salmon')
+  axes[0, 1].set_title('Artist Count')
+  axes[0, 1].set_xlabel('Artist Count')
+
+  # Box plot for 'artist_count'
+  sns.boxplot(x=df['artist_count'], ax=axes[1, 1], color='lightcoral', width=0.6)
+  axes[1, 1].set_title('Artist Count - Outliers')
+
+  plt.tight_layout()
+  plt.show()
   ```
   **Output**:
-  ```
-  OUTPUT
-  ```
-  
+
+  ![Screenshot 2024-11-05 at 1 03 36 PM](https://github.com/user-attachments/assets/417beab2-9802-457e-90e8-5743f7ad1290)
+ 
 ## Top Performers
 - Which track has the highest number of streams? Display the top 5 most streamed tracks.
   ```python
@@ -300,11 +320,11 @@ Before we begin the Data Analysis, we must first import the required libraries, 
   ```python
   sources = ['in_spotify_playlists','in_spotify_charts', 'in_apple_playlists']
 
-  track_sums = [df[src].sum() for src in sources] # Sums the tracks for each source
+  track_sums = [df[src].sum() for src in sources] # Sum the tracks for each source
 
   data = pd.DataFrame({'Platform': sources, 'Tracks': track_sums})
 
-  sns.barplot(x='Platform', y='Tracks', data=data); # Plots the results
+  sns.barplot(x='Platform', y='Tracks', data=data); # Plot the results
   ```
   **Output**:
 
